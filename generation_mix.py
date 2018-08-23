@@ -2,7 +2,7 @@
 #Import dependencies
 import requests
 import json
-from sqlite3 import connect
+import db_connector
 
 
 def update():
@@ -50,7 +50,7 @@ def update():
 	print "wind: " + str(wind)
 
 	# COnnect to database
-	conn = connect('energy.db')
+	conn = db_connector.create_connection()
 	curs = conn.cursor()
 
 	#Create table if it doesn't exist
@@ -94,7 +94,6 @@ def update():
 		hydro,
 		solar,
 		wind))
-
 
 	# Finalise DB updates
 	conn.commit()
