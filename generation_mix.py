@@ -6,7 +6,7 @@ base_url = "https://api.carbonintensity.org.uk/generation"
 
 
 # Get the gen mix from the last 30 mins
-def get_latest():
+def get_last_30_mins():
 
     # Get raw data
     headers = {'Accept': 'application/json'}
@@ -17,9 +17,7 @@ def get_latest():
 
     gen_mix = {}
 
-    # gen_mix["start_date"] = json_data["data"]["from"]
-    # gen_mix["end_date"] = json_data["data"]["to"]
-
+    # Parse data
     for i in json_data["data"]["generationmix"]:
         if i["fuel"] == "biomass":
             gen_mix["biomass"] = i["perc"]
@@ -41,11 +39,3 @@ def get_latest():
             gen_mix["wind"] = i["perc"]
 
     return gen_mix
-
-
-# def get():
-# conn = connect('renewables_mix.db')
-# curs = conn.cursor()
-# curs.execute("SELECT lastname FROM employees;")
-# for (name) in curs.fetchall():
-#     print name
