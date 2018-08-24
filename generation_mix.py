@@ -17,7 +17,7 @@ def get_last_30_mins():
 
     gen_mix = {}
 
-    # Parse data
+    # Get percentages for all fuels and add to dict
     for i in json_data["data"]["generationmix"]:
         gen_mix[i["fuel"]] = i["perc"]
 
