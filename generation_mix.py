@@ -29,7 +29,7 @@ def get_last_30_mins(fuel_type):
 
     gen_mix = {}
 
-    # Get percentages for all fuels and add to dict
+    # Get percentages for fuels based on fuel type
     for i in json_data["data"]["generationmix"]:
 
         if fuel_type == 'all':
