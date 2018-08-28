@@ -49,7 +49,7 @@ def update():
 	print "solar: " + str(solar)
 	print "wind: " + str(wind)
 
-	# COnnect to database
+	# Connect to database
 	conn = db_connector.create_connection()
 	curs = conn.cursor()
 
