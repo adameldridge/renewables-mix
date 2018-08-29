@@ -34,10 +34,11 @@ def get_last_30_mins(fuel_type):
 
         if fuel_type == 'all':
             gen_mix[i["fuel"]] = i["perc"]
-        else:
+        elif (fuel_type == 'clean') or (fuel_type == 'dirty'):
             if fuel_types[i["fuel"]] == fuel_type:
                 gen_mix[i["fuel"]] = i["perc"]
-                
+    
+    # Handle errors   
     if not gen_mix:
         results = "ERROR: Fuel type not found"
     else:
