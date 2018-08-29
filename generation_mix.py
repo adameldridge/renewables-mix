@@ -37,5 +37,6 @@ def get_last_30_mins(fuel_type):
         else:
             if fuel_types[i["fuel"]] == fuel_type:
                 gen_mix[i["fuel"]] = i["perc"]
+        
 
     return gen_mix
